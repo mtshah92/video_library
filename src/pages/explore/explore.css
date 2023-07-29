@@ -1,0 +1,21 @@
+.explore-page {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+.search {
+  margin: 0.5rem;
+  margin-top: 2rem;
+}
+.search-input {
+  width: 85%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.bi-search {
+  position: relative;
+  right: 50px;
+}
+.all-videos {
+  display: flex;
+  flex-wrap: wrap;
+}

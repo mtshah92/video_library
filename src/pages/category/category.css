@@ -1,0 +1,35 @@
+.video-detail {
+  display: flex;
+}
+.creator-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.thumbnail {
+  width: 300px;
+  height: 175px;
+}
+.selected-category-video {
+  position: relative;
+  width: 300px;
+}
+.watch-later-icon {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  /* border: 1px solid; */
+  padding: 0.5rem;
+  margin-right: 0;
+  margin-top: 0;
+  background-color: #ffffff;
+}
+
+.abt-vid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.video-detail {
+  cursor: pointer;
+}

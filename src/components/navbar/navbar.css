@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  margin-left: 1.5rem;
+  border: 1px solid;
+  height: max-content;
+  line-height: 2;
+  width: max-content;
+  justify-content: space-around;
+}

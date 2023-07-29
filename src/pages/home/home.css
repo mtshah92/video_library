@@ -1,0 +1,16 @@
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.category-item {
+  margin: 0.5rem;
+}

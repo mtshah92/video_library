@@ -1,0 +1,21 @@
+.video-page-show-playlist {
+  position: relative;
+  width: 200px;
+  top: -15px;
+  left: 445px;
+  border: 1px solid;
+  padding: 0.5rem;
+}
+.playlist-data {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-create-playlist {
+  padding: 0.25rem;
+  font-size: 12px;
+  margin: 0.5rem 0rem;
+  border-radius: 0.5rem;
+}
+.playlist-data {
+  cursor: pointer;
+}

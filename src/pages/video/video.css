@@ -1,0 +1,35 @@
+.video-page {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1.5fr;
+}
+
+.video-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  width: 650px;
+}
+.show-video {
+  width: 650px;
+  height: 400px;
+}
+.video-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+.video-info-part {
+  display: flex;
+  align-items: center;
+}
+.action-watch-later,
+.action-playlist {
+  margin-right: 1.25rem;
+}
+.video-actions {
+  display: flex;
+  justify-content: space-around;
+}
