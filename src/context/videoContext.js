@@ -7,8 +7,11 @@ export const VideoProvider = ({ children }) => {
   const [playlistModal, setPlaylistModal] = useState(false);
   const [showPlaylist, setShowPlaylistModal] = useState(false);
   const [notesModal, setNotesModal] = useState(false);
+  const [editNotesModal, setEditNotesModal] = useState(false);
   const [newPlaylist, setNewPlaylist] = useState();
   const [noteData, setNoteData] = useState();
+  const [editNoteData, setEditNoteData] = useState();
+  // const [state,SetState]=useState()
 
   const initalData = {
     video: videos,
@@ -64,13 +67,32 @@ export const VideoProvider = ({ children }) => {
           ),
         };
       }
+      case "delete_note": {
+        return {
+          ...state,
+          video: state.video.map((item) =>
+            action.payload === item._id
+              ? {
+                  ...item,
+                  notes: item.notes.filter(
+                    (item) => !item.includes(action.data)
+                  ),
+                }
+              : item
+          ),
+        };
+      }
       default:
         return state;
     }
   };
 
   const [state, dispatch] = useReducer(handleVideos, initalData);
-  console.log(state.video);
+  console.log(state);
+  // sessionStorage.setItem("state", JSON.stringify(data));
+  // const state = JSON.parse(sessionStorage.getItem("state"));
+  // console.log(state);
+
   return (
     <VideoContext.Provider
       value={{
@@ -86,6 +108,10 @@ export const VideoProvider = ({ children }) => {
         setShowPlaylistModal,
         noteData,
         setNoteData,
+        editNotesModal,
+        setEditNotesModal,
+        editNoteData,
+        setEditNoteData,
       }}
     >
       {children}

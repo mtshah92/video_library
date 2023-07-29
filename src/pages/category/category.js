@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router";
 import { NavBar } from "../../components/navbar/navbar";
-import { videos } from "../../db/videos";
 import "./category.css";
 import { useContext } from "react";
 import { VideoContext } from "../../context/videoContext";
@@ -40,9 +39,9 @@ export const Category = () => {
                   className="watch-later-icon"
                 >
                   {watchLater ? (
-                    <i class="bi bi-clock"></i>
-                  ) : (
                     <i class="bi bi-clock-fill"></i>
+                  ) : (
+                    <i class="bi bi-clock"></i>
                   )}
                 </div>
                 <div

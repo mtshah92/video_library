@@ -4,7 +4,10 @@ import { useContext } from "react";
 import { VideoContext } from "../../context/videoContext";
 import { ShowPlaylistModal } from "../../components/modals/showPlaylistModal/showPlaylist";
 import "./video.css";
-import { NoteModal } from "../../components/modals/noteModal/noteModal";
+import {
+  EditNoteModal,
+  NoteModal,
+} from "../../components/modals/noteModal/noteModal";
 
 export const Video = () => {
   const { videoId } = useParams();
@@ -16,22 +19,13 @@ export const Video = () => {
     showPlaylist,
     notesModal,
     setNotesModal,
+    setEditNotesModal,
+    setEditNoteData,
   } = useContext(VideoContext);
   const showVideo = state?.video?.filter((item) => item._id == videoId);
   const otherVideos = state?.video?.filter((item) => item._id !== videoId);
-  // console.log(showVideo);
-  const {
-    _id,
-    title,
-    views,
-    thumbnail,
-    category,
-    creator,
-    watchLater,
-    src,
-    chips,
-    notes,
-  } = showVideo[0];
+
+  const { _id, title, thumbnail, watchLater, src, notes } = showVideo[0];
 
   return (
     <div className="video-page">
@@ -49,9 +43,9 @@ export const Video = () => {
               className="action-watch-later"
             >
               {watchLater ? (
-                <i class="bi bi-clock"></i>
-              ) : (
                 <i class="bi bi-clock-fill"></i>
+              ) : (
+                <i class="bi bi-clock"></i>
               )}
             </div>
             <div
@@ -70,15 +64,29 @@ export const Video = () => {
         </div>
         <ShowPlaylistModal data={_id} />
         <NoteModal data={_id} />
-        {/* <setShowPlaylistModal item={showVideo[0]} /> */}
+
         <div className="my-notes">
           <hr />
           <h3>My Notes</h3>
+          <EditNoteModal data={_id} />
           {notes?.map((item) => (
             <div>
               <p>{item}</p>
-              <button>Edit</button>
-              <button>Delete</button>
+              <button
+                onClick={() => {
+                  setEditNotesModal(true);
+                  setEditNoteData(item);
+                }}
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => {
+                  dispatch({ type: "delete_note", payload: _id, data: item });
+                }}
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { VideoContext } from "../../../context/videoContext";
 import "./playlistModal.css";
 
-export const PlaylistModal = ({ item }) => {
+export const PlaylistModal = () => {
   const {
     playlistModal,
     setPlaylistModal,
@@ -25,7 +25,7 @@ export const PlaylistModal = ({ item }) => {
         <div>
           <button
             onClick={() =>
-              dispatch({ type: "new_playlist", payload: newPlaylist })
+              dispatch({ type: "new_playlist", name: newPlaylist })
             }
           >
             Submit

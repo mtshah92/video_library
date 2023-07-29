@@ -37,9 +37,9 @@ export const WatchLater = () => {
                   className="watch-later-icon"
                 >
                   {watchLater ? (
-                    <i class="bi bi-clock"></i>
-                  ) : (
                     <i class="bi bi-clock-fill"></i>
+                  ) : (
+                    <i class="bi bi-clock"></i>
                   )}
                 </div>
                 <div

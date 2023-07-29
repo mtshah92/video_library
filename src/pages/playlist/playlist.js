@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { NavBar } from "../../components/navbar/navbar";
 import { VideoContext } from "../../context/videoContext";
 import { useNavigate } from "react-router";
-
+import "./playlist.css";
+import { PlaylistModal } from "../../components/modals/playlistModal/playlistModal";
 export const Playlist = () => {
-  const { state, dispatch } = useContext(VideoContext);
+  const { state, playlistModal, setPlaylistModal } = useContext(VideoContext);
   const navigate = useNavigate();
   return (
     <div className="playlist-page home-page">
@@ -25,6 +26,10 @@ export const Playlist = () => {
               <h3>{item}</h3>
             </div>
           ))}
+        </div>
+        {playlistModal && <PlaylistModal />}
+        <div onClick={() => setPlaylistModal(true)}>
+          <i class="bi bi-plus-circle"></i>
         </div>
       </div>
     </div>

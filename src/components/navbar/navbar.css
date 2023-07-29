@@ -1,11 +1,19 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-left: 1.5rem;
-  border: 1px solid;
+  /* border: 1px solid; */
   height: max-content;
-  line-height: 2;
+  line-height: 3;
   width: max-content;
   justify-content: space-around;
+  cursor: pointer;
 }
+
+/* .navbar-item-home:active,
+.navbar-item-explore:focus,
+.navbar-item-playlist:focus,
+.navbar-item-watchLater:focus {
+  color: aquamarine;
+} */

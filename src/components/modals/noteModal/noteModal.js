@@ -22,3 +22,32 @@ export const NoteModal = ({ data }) => {
     )
   );
 };
+
+export const EditNoteModal = ({ data }) => {
+  const {
+    editNotesModal,
+    setEditNotesModal,
+    editNoteData,
+    setEditNoteData,
+    dispatch,
+  } = useContext(VideoContext);
+
+  return (
+    editNotesModal && (
+      <div>
+        <input
+          value={editNoteData}
+          onChange={(e) => setEditNoteData(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            setEditNotesModal(false);
+            dispatch({ type: "add_note", payload: editNoteData, item: data });
+          }}
+        >
+          Submit
+        </button>
+      </div>
+    )
+  );
+};
