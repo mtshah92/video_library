@@ -8,6 +8,7 @@ export const VideoProvider = ({ children }) => {
   const [showPlaylist, setShowPlaylistModal] = useState(false);
   const [notesModal, setNotesModal] = useState(false);
   const [newPlaylist, setNewPlaylist] = useState();
+  const [noteData, setNoteData] = useState();
 
   const initalData = {
     video: videos,
@@ -52,6 +53,17 @@ export const VideoProvider = ({ children }) => {
           playlist: state.playlist.filter((item) => item !== action.payload),
         };
       }
+
+      case "add_note": {
+        return {
+          ...state,
+          video: state.video.map((item) =>
+            action.item === item._id
+              ? { ...item, notes: [action.payload] }
+              : item
+          ),
+        };
+      }
       default:
         return state;
     }
@@ -72,6 +84,8 @@ export const VideoProvider = ({ children }) => {
         setNewPlaylist,
         showPlaylist,
         setShowPlaylistModal,
+        noteData,
+        setNoteData,
       }}
     >
       {children}

@@ -4,12 +4,19 @@ import { useContext } from "react";
 import { VideoContext } from "../../context/videoContext";
 import { ShowPlaylistModal } from "../../components/modals/showPlaylistModal/showPlaylist";
 import "./video.css";
+import { NoteModal } from "../../components/modals/noteModal/noteModal";
 
 export const Video = () => {
   const { videoId } = useParams();
   const navigate = useNavigate();
-  const { state, dispatch, setShowPlaylistModal, showPlaylist } =
-    useContext(VideoContext);
+  const {
+    state,
+    dispatch,
+    setShowPlaylistModal,
+    showPlaylist,
+    notesModal,
+    setNotesModal,
+  } = useContext(VideoContext);
   const showVideo = state?.video?.filter((item) => item._id == videoId);
   const otherVideos = state?.video?.filter((item) => item._id !== videoId);
   // console.log(showVideo);
@@ -23,6 +30,7 @@ export const Video = () => {
     watchLater,
     src,
     chips,
+    notes,
   } = showVideo[0];
 
   return (
@@ -52,16 +60,27 @@ export const Video = () => {
             >
               <i class="bi bi-music-note-list"></i>
             </div>
-            <div className="action-notes">
+            <div
+              className="action-notes"
+              onClick={() => setNotesModal(!notesModal)}
+            >
               <i class="bi bi-card-text"></i>
             </div>
           </div>
         </div>
         <ShowPlaylistModal data={_id} />
+        <NoteModal data={_id} />
         {/* <setShowPlaylistModal item={showVideo[0]} /> */}
         <div className="my-notes">
           <hr />
           <h3>My Notes</h3>
+          {notes?.map((item) => (
+            <div>
+              <p>{item}</p>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+          ))}
         </div>
       </div>
       <div className="more-videos">
