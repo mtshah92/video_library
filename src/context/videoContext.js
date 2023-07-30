@@ -87,10 +87,10 @@ export const VideoProvider = ({ children }) => {
     }
   };
 
-  const [state, dispatch] = useReducer(handleVideos, initalData);
-  console.log(state);
-  // sessionStorage.setItem("state", JSON.stringify(data));
-  // const state = JSON.parse(sessionStorage.getItem("state"));
+  const [data, dispatch] = useReducer(handleVideos, initalData);
+  // console.log(state);
+  sessionStorage.setItem("state", JSON.stringify(data));
+  const state = JSON.parse(sessionStorage.getItem("state"));
   // console.log(state);
 
   return (
