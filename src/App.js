@@ -7,10 +7,12 @@ import { Explore } from "./pages/explore/explore";
 import { WatchLater } from "./pages/watchLater/watchLater";
 import { Playlist } from "./pages/playlist/playlist";
 import { SinglePlaylist } from "./pages/singlePlaylist/singlePlaylist";
+import { Header } from "./components/header/header";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryName" element={<Category />} />

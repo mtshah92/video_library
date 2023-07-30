@@ -1,9 +1,8 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
+  margin-top: 0.5rem;
   margin-left: 1.5rem;
-  /* border: 1px solid; */
   height: max-content;
   line-height: 3;
   width: max-content;

@@ -7,7 +7,7 @@ export const NavBar = () => {
     <div>
       <div className="navbar">
         <div className="navbar-item-home" onClick={() => navigate("/")}>
-          <i class="bi bi-house-door"></i>Home
+          <i class="bi bi-house-door"></i> Home
         </div>
         <div
           className="navbar-item-explore"

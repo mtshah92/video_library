@@ -13,18 +13,20 @@
 .selected-category-video {
   position: relative;
   width: 300px;
+  cursor: pointer;
 }
 .watch-later-icon {
   position: absolute;
   top: 0.2rem;
   right: 0.2rem;
-  /* border: 1px solid; */
   padding: 0.5rem;
   margin-right: 0;
   margin-top: 0;
-  background-color: #ffffff;
+  background-color: #111827;
 }
-
+.category-item {
+  cursor: pointer;
+}
 .abt-vid {
   display: flex;
   flex-direction: column;
