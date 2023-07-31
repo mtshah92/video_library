@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { videos } from "../db/videos";
 
 export const VideoContext = createContext();
@@ -11,11 +11,12 @@ export const VideoProvider = ({ children }) => {
   const [newPlaylist, setNewPlaylist] = useState();
   const [noteData, setNoteData] = useState();
   const [editNoteData, setEditNoteData] = useState();
-  // const [state,SetState]=useState()
+
+  const state = JSON.parse(localStorage.getItem("state"));
 
   const initalData = {
-    video: videos,
-    playlist: ["Music"],
+    video: state ? state.video : videos,
+    playlist: state ? state.playlist : ["Music"],
   };
 
   const handleVideos = (state, action) => {
@@ -88,10 +89,8 @@ export const VideoProvider = ({ children }) => {
   };
 
   const [data, dispatch] = useReducer(handleVideos, initalData);
-  // console.log(state);
-  sessionStorage.setItem("state", JSON.stringify(data));
-  const state = JSON.parse(sessionStorage.getItem("state"));
-  // console.log(state);
+  console.log(data);
+  localStorage.setItem("state", JSON.stringify(data));
 
   return (
     <VideoContext.Provider
